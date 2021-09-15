@@ -9,7 +9,8 @@ public class UserRegistration {
         UserInput user = new UserInput();
         user.fName("Achintya");
         user.lName("tiwari");
-        user.eaddress("achintyatiwari165@gmail.com");;
+        user.eaddress("achintyatiwari165@gmail.com");
+        user.mobNo("91 8109750567");
     }
 
     public static class UserInput {
@@ -46,6 +47,17 @@ public class UserRegistration {
             }
             else{
                 System.out.println(eaddress+" is Invalid");
+            }
+        }
+        public void mobNo(String mobNo) {
+            String regex = "^[0-9]{2} [6-9]{1}[0-9]{9}$";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(mobNo);
+            boolean valid = matcher.matches();
+            if (valid == true) {
+                System.out.println("Your Phone Number " + mobNo + " is Valid");
+            } else {
+                System.out.println("Your Phone Number " +mobNo + " is Invalid");
             }
         }
     }
